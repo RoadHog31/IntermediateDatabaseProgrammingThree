@@ -1,0 +1,57 @@
+﻿<Window x:Class="IntermediateDatabaseProgrammingThree.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Gym Maintenance" Height="434" Width="1064" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnAddClub" Content="Add" HorizontalAlignment="Left" Margin="10,367,0,0" VerticalAlignment="Top" Width="100" Height="26" Click="btnAddClub_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnUpdateClub" Content="Update" HorizontalAlignment="Left" Margin="131,367,0,0" VerticalAlignment="Top" Width="100" Height="26" Click="btnUpdateClub_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="257,367,0,0" VerticalAlignment="Top" Width="100" Height="26" Click="btnExit_Click" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="23" Margin="10,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="370,325,0,0" VerticalAlignment="Top" Width="62" Height="26" Click="btnSearch_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnAddTab" Content="Add" HorizontalAlignment="Left" Margin="840,373,0,0" VerticalAlignment="Top" Width="85" Grid.Column="1" Height="20" Click="btnAddTab_Click"/>
+        <Button x:Name="btnUpdateTab" Content="Update" HorizontalAlignment="Left" Margin="950,373,0,0" VerticalAlignment="Top" Width="85" Grid.Column="1" Height="20" Click="btnUpdateTab_Click"/>
+        <TabControl x:Name="tabDetails" HorizontalAlignment="Left" Height="358" Margin="550,10,0,0" VerticalAlignment="Top" Width="500" Grid.ColumnSpan="2">
+            <TabItem x:Name="EQUIPMENT" Header="Equipment">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="grdEquipment" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="310" Width="474" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="Equipment_Description" Header="Equipment" Binding="{Binding Description}"/>
+                            <DataGridTextColumn x:Name="DateMaintained" Header="Date Maintained" Binding="{Binding DateMaintained}"/>
+                            <DataGridTextColumn x:Name="MaximumWeight" Header="Maximum Weight" Binding="{Binding MaxWeight}"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="MEMBER" Header="Members">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="grdMember" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="310" Width="484" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="FirstName" Header="First Name" Binding="{Binding FirstName}"/>
+                            <DataGridTextColumn x:Name="Surname" Header="Surname" Binding="{Binding Surname}"/>
+                            <DataGridTextColumn x:Name="AddressLine1" Header="Address" Binding="{Binding AddressLine1}"/>
+                            <DataGridTextColumn x:Name="AddressLine2" Header="Address" Binding="{Binding AddressLine2}"/>
+                            <DataGridTextColumn x:Name="AddressLine3" Header="Address" Binding="{Binding AddressLine3}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <DataGrid x:Name="grdClub" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="310" Width="505" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" Grid.ColumnSpan="2" SelectionChanged="grdClub_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="ClubName" Header="Club" Binding="{Binding Name}"/>
+                <DataGridTextColumn x:Name="ClubAddressLine1" Header="Address" Binding="{Binding AddressLine1}"/>
+                <DataGridTextColumn x:Name="ClubAddressLine2" Header="Address" Binding="{Binding AddressLine2}"/>
+                <DataGridTextColumn x:Name="ClubAddressLine3" Header="Address" Binding="{Binding AddressLine3}"/>
+                <DataGridTextColumn x:Name="ManagerName" Header="Manager" Binding="{Binding FullName}"/>
+             </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnReset" Grid.ColumnSpan="2" Content="Reset" HorizontalAlignment="Left" Margin="450,325,0,0" VerticalAlignment="Top" Width="65" Height="26" Click="btnReset_Click"/>
+
+    </Grid>
+</Window>
